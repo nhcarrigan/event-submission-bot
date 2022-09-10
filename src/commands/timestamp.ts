@@ -82,7 +82,9 @@ export const timestamp: Command = {
         .toMillis();
 
       await interaction.editReply({
-        content: `Your milliseconds timestamp is: \`${timestamp}\``,
+        content: `Your milliseconds timestamp is: \`${timestamp}\`\n\nThis corresponds to <t:${Math.round(
+          timestamp / 1000
+        )}:F>\n\nIf this time is incorrect, please try again and be sure you use UTC time, not local time, for the hour value.`,
       });
     } catch (err) {
       await errorHandler(bot, "timestamp command", err);
