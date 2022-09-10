@@ -1,5 +1,7 @@
 import { Client, WebhookClient } from "discord.js";
 
+import { Command } from "./Command";
+
 export interface ExtendedClient extends Client {
   env: {
     token: string;
@@ -7,4 +9,5 @@ export interface ExtendedClient extends Client {
     eventChannel: string;
     debugHook: WebhookClient;
   };
+  commands: Command[];
 }
